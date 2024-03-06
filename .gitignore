@@ -19,3 +19,5 @@ yarn-error.log
 /.vscode
 public/css/filament
 public/js/filament
+/draft.yaml
+/.blueprint
