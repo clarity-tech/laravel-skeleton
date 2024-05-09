@@ -1,3 +1,17 @@
+# A opinionted laravel skeleton
+
+Installed with some of the common packages setup with defaults so that we can track the change while modifying for any projects.
+
+It will serve as a starting point for making any application
+
+
+<a href="https://laravel.com/docs/11.x/sail#installing-composer-dependencies-for-existing-projects" target="_blank">
+Setup using sail?
+</a>
+
+Project stack is setup with mysql, redis, mailpit, minio
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
