@@ -42,4 +42,14 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan test
+      run: php artisan test --coverage-clover tmp/clover.xml
+
+    - name: Monitor Coverage
+      if: always()
+      uses: slavcodev/coverage-monitor-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        coverage_path: "tmp/clover.xml"
+        threshold_alert: 10
+        threshold_warning: 50
+        threshold_metric: "lines"
