@@ -42,8 +42,14 @@
             "@php artisan package:discover --ansi",
             "@php artisan filament:upgrade"
         ],
-        "post-update-cmd": [
+        "setup": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-update-cmd": [
+            "@setup"
+        ],
+        "post-install-cmd": [
+            "@setup"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -52,6 +58,14 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
+        ],
+        "sniff": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/pint --dirty --test"
+        ],
+        "lint": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/pint --dirty"
         ]
     },
     "extra": {

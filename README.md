@@ -12,6 +12,14 @@ Setup using sail?
 Project stack is setup with mysql, redis, mailpit, minio
 
 
+
+before commit run pint to automatically fix your changed files in working directory
+
+```bash
+composer lint
+```
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
