@@ -22,3 +22,5 @@ public/js/filament
 /draft.yaml
 /.blueprint
 public/vendor/
+# as we will use yarn for better management
+package-lock.json
