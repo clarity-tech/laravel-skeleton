@@ -11,6 +11,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    // test ccc
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
