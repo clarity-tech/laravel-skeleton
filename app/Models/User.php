@@ -9,9 +9,14 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
+use Filament\Panel;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Models\Contracts\HasTenants;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, HasTenants, FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -63,5 +68,22 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        //TODO: write conditions or policy check to allow access to certain panels
+        return true;
+    }
+
+    // methods related to filament multi-tenancy
+    public function getTenants(Panel $panel): Collection
+    {
+        return $this->allTeams();
+    }
+
+    public function canAccessTenant(Model $tenant): bool
+    {
+        return $this->belongsToTeam($tenant);
     }
 }
