@@ -24,3 +24,5 @@ public/js/filament
 public/vendor/
 # as we will use yarn for better management
 package-lock.json
+public/admin
+public/admin.hot
